@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+form {
+  max-width: 800px;
+}
+
+.add-employee-card {
+  min-width: 120px;
+  margin: 20px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.col:last-child {
+  margin-right: 0;
+}
+
+.actions {
+  padding: var(--spacing-md);
+
+  > :first-child {
+    margin-left: auto;
+  }
+
+  > :not(:first-child) {
+    margin-left: var(--spacing-md);
+  }
+}

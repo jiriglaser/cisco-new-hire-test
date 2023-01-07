@@ -1,0 +1,65 @@
+<mat-toolbar color="primary">
+  Corporate Employees
+</mat-toolbar>
+
+<div class="grid-container" [ngClass]="{ handset: (isHandset$ | async) }">
+  <mat-grid-list cols="2" rowHeight="fit">
+
+    <mat-grid-tile [colspan]="2" [rowspan]="1">
+      <mat-card class="dashboard-card">
+
+        <mat-card-header>
+          <mat-card-title>
+            Employee List
+            <a
+              mat-flat-button
+              routerLink="add"
+              color="primary"
+              class="action-button"
+            >
+              Add Employee
+            </a>
+          </mat-card-title>
+
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content employee-table-card">
+          <empl-employee-list [ngClass]="{ handset: (isHandset$ | async) }"></empl-employee-list>
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="(isHandset$ | async) ? 2 : 1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+
+        <mat-card-header>
+          <mat-card-title>
+            Employees by Job Title
+          </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="dashboard-card-content">
+          <empl-job-title-chart></empl-job-title-chart>
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="(isHandset$ | async) ? 2 : 1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+
+        <mat-card-header>
+          <mat-card-title>
+            Employees by Gender
+          </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="dashboard-card-content">
+          <empl-gender-chart></empl-gender-chart>
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>

@@ -1,0 +1,30 @@
+:host {
+  &.handset .employee-table-container {
+    height: calc(100% - var(--spacing-md) - 90px);
+  }
+}
+
+
+.employee-table-container {
+  height: calc(100% - var(--spacing-md) - 56px);
+  margin-top: var(--spacing-md);
+  overflow: auto;
+}
+
+.spinner-container {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: calc(100% - 64px);
+  background-color: rgba(255, 255, 255, 0.85);
+
+  > mat-spinner {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+  }
+}

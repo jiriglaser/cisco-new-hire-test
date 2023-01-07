@@ -1,0 +1,66 @@
+<mat-toolbar color="primary">
+  Add Employee
+</mat-toolbar>
+
+<form [formGroup]="employeeForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="add-employee-card">
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Name" formControlName="name">
+            <mat-error *ngIf="employeeForm.controls['name'].hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Job title" formControlName="jobTitle">
+            <mat-error *ngIf="employeeForm.controls['jobTitle'].hasError('required')">
+              Job title is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Tenure" formControlName="tenure">
+            <mat-error *ngIf="employeeForm.controls['tenure'].hasError('required')">
+              Tenure is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="employeeForm.controls['tenure'].hasError('pattern')">
+              Please provide a number 0-99
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Gender" formControlName="gender">
+              <mat-option *ngFor="let gender of ['Male', 'Female']" [value]="gender">
+                {{ gender }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="employeeForm.controls['gender'].hasError('required')">
+              Gender is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions class="actions">
+      <a mat-raised-button routerLink="..">Cancel</a>
+      <button
+        mat-raised-button
+        [disabled]="employeeForm.invalid"
+        color="primary"
+        type="submit"
+      >
+        Add
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
